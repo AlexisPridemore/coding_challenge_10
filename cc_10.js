@@ -47,19 +47,19 @@ console.log(prod1.getDetails());
 
 class Inventory {
     constructor() {
-        this.products = [];
-        this.orders = [];
+        this.products = [];  //Array of products
+        this.orders = [];    //Array of orders
     }
     addProduct(product) {
-        this.products.push(product);
+        this.products.push(product);  // Add a new product to inventory
     }
     listProducts() {
         this.products.forEach(product =>{
-            console.log(product.getDetails());
+            console.log(product.getDetails());  //Log all products' details
         })
     }
 };
-    const inventory = new Inventory();
+const inventory = new Inventory();  //Create new inventory
 inventory.addProduct(prod1);
 inventory.listProducts();
     

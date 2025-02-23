@@ -28,17 +28,38 @@ console.log(prod1.getDetails());
 
 class Order {
     constructor(orderId, product, quantity) {
-        this.orderId = orderId;
-        this.product = product;
-        this.quantity = quantity;
-        this.totalPrice = product.price * quantity;
-        this.product.updateStock(quantity);
+        this.orderId = orderId;  //Order ID
+        this.product = product;  //Product being ordered
+        this.quantity = quantity; //Quanity of product ordered
+        this.totalPrice = product.price * quantity;  //Total Price for order
+        this.product.updateStock(quantity);  //Reduce stock based on quantity ordered
     }
     getOrderDetails() {
         return `Order ID: $${this.orderId}, Product: $${this.product.name}, Quantity: ${this.quantity}, Total Price: $${this.totalPrice}`
-    };
+    };    //Return order details
 }
 
-const order1 = new Order(501, prod1, 2);
+const order1 = new Order(501, prod1, 2);  //Declare new order
 console.log(order1.getOrderDetails());
 console.log(prod1.getDetails()); 
+
+//Task 3: Creating an Inventory Class
+
+class Inventory {
+    constructor() {
+        this.products = [];
+        this.orders = [];
+    }
+    addProduct(product) {
+        this.products.push(product);
+    }
+    listProducts() {
+        this.products.forEach(product =>{
+            console.log(product.getDetails());
+        })
+    }
+};
+    const inventory = new Inventory();
+inventory.addProduct(prod1);
+inventory.listProducts();
+    

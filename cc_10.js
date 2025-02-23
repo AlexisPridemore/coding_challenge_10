@@ -74,7 +74,7 @@ class Inventory {
     restockProduct(productId, quantity){
         const product = this.products.find(p =>p.id === productId);
         if (product) {
-            product.restock(quantity);
+            product.restock(quantity);  //increase the stock of the product based on quantity
         }
     }
 
@@ -92,5 +92,5 @@ console.log(prod1.getDetails());
 // Task 5: Implementing Product Restocking
 
 inventory.restockProduct(101, 5);
-console.log(prod1.getDetails());
+console.log(prod1.getDetails());  //log product details
     

@@ -68,9 +68,15 @@ class Inventory {
     listOrders() {
         this.orders.forEach(order => {
             console.log(order.getOrderDetails());
-        });
-    }  //Log placed orders
-
+        });   //Log all placed orders
+    }  
+    // Adding Task 5:
+    restockProduct(productId, quantity){
+        const product = this.products.find(p =>p.id === productId);
+        if (product) {
+            product.restock(quantity);
+        }
+    }
 
 };
 const inventory = new Inventory();  //Create new inventory
@@ -85,5 +91,6 @@ console.log(prod1.getDetails());
 
 // Task 5: Implementing Product Restocking
 
-
+inventory.restockProduct(101, 5);
+console.log(prod1.getDetails());
     

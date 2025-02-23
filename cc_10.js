@@ -58,8 +58,32 @@ class Inventory {
             console.log(product.getDetails());  //Log all products' details
         })
     }
+    // Adding Task 4:
+    placeOrder(orderId, product, quantity) {   //Orders array
+        if (product.stock >= quantity) {
+            const newOrder = new Order(orderId, product, quantity);  //Create new order
+            this.orders.push(newOrder);  //Add new order to array
+        }
+    }
+    listOrders() {
+        this.orders.forEach(order => {
+            console.log(order.getOrderDetails());
+        });
+    }  //Log placed orders
+
+
 };
 const inventory = new Inventory();  //Create new inventory
 inventory.addProduct(prod1);
 inventory.listProducts();
+
+// Task 4: Implementing Order Management
+
+inventory.placeOrder(601, prod1, 2);
+inventory.listOrders();
+console.log(prod1.getDetails());
+
+// Task 5: Implementing Product Restocking
+
+
     
